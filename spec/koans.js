@@ -220,8 +220,8 @@ describe("destructuring arrays makes shorter code. ", () => {
 
   it("chained assignments", () => {
     let c, d;
-    // let a, b = c, d = [1, 2] 
-    // expect([a, b, c, d]).toEqual([1, 2, 1, 2]);
+    let [a, b] = [c, d] = [1, 2];     
+    expect([a, b, c, d]).toEqual([1, 2, 1, 2]);
   });
 });
 
@@ -277,7 +277,7 @@ describe("destructuring can also have default values. ", () => {
 
   it("for a missing value", () => {
      const [a, b=2, c] = [1, , 3] 
-    // expect(b).toEqual(2);
+     expect(b).toEqual(2);
   });
 
   it("in an object", () => {
@@ -430,7 +430,7 @@ describe("spread with arrays. ", () => {
   });
 
   it("in combination with rest", function() {
-    //const [a, b, ...theRest] = [...[0, 1, 2, 3, 4, 5]];
+    
       const [...[,a,b,...theRest]] = [...[0, 1, 2, 3, 4, 5]];
     expect(a).toEqual(1);
     expect(b).toEqual(2);
@@ -438,7 +438,7 @@ describe("spread with arrays. ", () => {
   });
 
   it("spreading into the rest", function() {
-    //const [...rest] = [...[, 1, 2, 3, 4, 5]];
+    
     const [...[,...rest]] = [...[, 1, 2, 3, 4, 5]];
      expect(rest).toEqual([1, 2, 3, 4, 5]);
   });
@@ -459,9 +459,10 @@ describe("spread with strings", () => {
 
 describe("class creation", () => {
   it("is as simple as `class XXX {}`", function() {
-    let TestClass = {};
-     //const instance = new TestClass();
-     //expect(typeof instance).toBe('object');
+    class TestClass{};
+            
+    const instance = new TestClass();
+     expect(typeof instance).toBe('object');
   });
 
   it("special method is `constructor`", function() {
