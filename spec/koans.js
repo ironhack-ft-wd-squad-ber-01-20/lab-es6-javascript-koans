@@ -103,9 +103,9 @@ describe("`string.includes()` finds string within another string. ", () => {
   });
   it("NaN", () => {
     /* const position = ???? */
-    /* const position = "0";
+    const position = NaN;
     expect(position).toBeNaN();
-    expect("abc".includes("a", position)).toBe(true); */
+    expect("abc".includes("a", position)).toBe(true);
   });
 });
 
