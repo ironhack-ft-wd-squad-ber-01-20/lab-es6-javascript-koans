@@ -334,9 +334,7 @@ describe("arrow functions. ", () => {
   });
 
   it("body needs parentheses to return an object", () => {
-    let func = () => {
-      return { iAm: "an object" };
-    };
+    let func = () => ({ iAm: "an object" });
     expect(func()).toEqual({ iAm: "an object" });
   });
 
